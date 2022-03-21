@@ -1,27 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
 body{
-    display: flex;
-    flex-direction: column;
     height: 100vh;
-    gap: 50px;
+    padding: 20px;    
+    font-family: 'Roboto', sans-serif;
+}
+
+#title-div{
+    font-size: 20px;
 }
 
 #header{
-    padding: 25px;
-    text-align: right;
+    display: flex;
+    align-items: center;
+    justify-content:space-between;
+    padding: 5px 20px;
+    margin-bottom: 50px;
 }
+
 #container{
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+    height: 80vh;
 }
 
 #grid-container{
-    display: flex;
+    height: 70vh;
+    width: 70vh;
+    display: grid;
+}
+
+.row-div{
+    display: grid;
+    grid-auto-flow: column;
 }
 
 .square-div{
-    height: 30px;
-    width: 30px;
     outline: 1px solid;
     margin-top: 1px;
     margin-left: 1px;

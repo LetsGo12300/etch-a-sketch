@@ -1,26 +1,46 @@
 document.addEventListener('DOMContentLoaded', function(){
 
     const container = document.querySelector('#grid-container');
+    resetButton = document.getElementById('reset-btn');
+
+    let currentSize = 16;
+    createGrid(currentSize);
     
-    for (let i = 0; i < 16; i++){ // row
-        const row_div = document.createElement('div');
-        row_div.classList.add('row-div');
-
-        for (let j = 0; j < 16; j++){ // column
-            const square = document.createElement('div');
-            square.id = `square-${i}-${j}`;
-            square.classList.add('square-div');
-            row_div.appendChild(square);
+    resetButton.addEventListener('click', () => {
+        let newSize = currentSize;
+        do{
+            newSize = prompt("Change number of squares per side (1 to 100):", currentSize);
+            newSize = parseInt(newSize);
         }
-        
-        container.appendChild(row_div);
-    }
-
-    document.querySelectorAll(".square-div").forEach(square => {
-        square.addEventListener('mouseenter', () => {
-            changeColor(square.id);
-        });
+        while(newSize < 0 || newSize > 100);
+    
+        if (!isNaN(newSize)){
+            currentSize = newSize;
+            createGrid(newSize);
+        }
     });
+
+    function createGrid(size){
+        container.textContent = '';
+        for (let i = 0; i < size; i++){ // row
+            const row_div = document.createElement('div');
+            row_div.classList.add('row-div');
+    
+            for (let j = 0; j < size; j++){ // column
+                const square = document.createElement('div');
+                square.id = `square-${i}-${j}`;
+                square.classList.add('square-div');
+                row_div.appendChild(square);
+            }
+            
+            container.appendChild(row_div);
+        }
+        document.querySelectorAll(".square-div").forEach(square => {
+            square.addEventListener('mouseenter', () => {
+                changeColor(square.id);
+            });
+        });
+    }
 
     
 });
