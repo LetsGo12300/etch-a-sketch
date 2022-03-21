@@ -1,0 +1,28 @@
+body{
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    gap: 50px;
+}
+
+#header{
+    padding: 25px;
+    text-align: right;
+}
+#container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#grid-container{
+    display: flex;
+}
+
+.square-div{
+    height: 30px;
+    width: 30px;
+    outline: 1px solid;
+    margin-top: 1px;
+    margin-left: 1px;
+}
